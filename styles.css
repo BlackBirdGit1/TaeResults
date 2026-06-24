@@ -89,6 +89,13 @@ section { padding: 80px 0; }
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text);
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 32px;
+  width: auto;
 }
 
 nav {
@@ -572,6 +579,75 @@ nav a:hover { color: var(--text); }
 }
 
 .audit-post li { margin-bottom: 8px; }
+
+/* ===== Blog Section ===== */
+
+.blog-section {
+  border-top: 1px solid var(--border);
+}
+
+.blog-section h2 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.blog-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+  font-size: 1.05rem;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.blog-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.blog-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.blog-card-body {
+  padding: 28px 24px;
+}
+
+.blog-date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.blog-card-body h3 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  line-height: 1.35;
+}
+
+.blog-card-body p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.blog-read-more {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-soft);
+}
 
 /* ===== Utilities ===== */
 
