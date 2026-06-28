@@ -1,67 +1,73 @@
 # TAE Results — Website
 
-## What's in this folder
+Local SEO audits and blog for East Tennessee businesses.  
+Live at [taeresults.com](https://taeresults.com)
+
+---
+
+## Site Structure
 
 ```
-taeresults-site/
-├── index.html              ← Homepage (landing page)
-├── audits.html             ← Audit archive + Blog page
-├── services.html           ← Services page
-├── styles.css              ← All styles
-├── logo.png                ← Site logo (trimmed, transparent background)
-└── audits/
-    └── example-business.html  ← Template for individual audit posts
+TaeResults-main/
+├── index.html            ← Homepage
+├── audits.html           ← Audits listing (carousel + searchable grid)
+├── blog.html             ← Blog listing (carousel + searchable grid)
+├── services.html         ← Services page
+├── styles.css            ← All styles
+├── logo.png              ← Site logo
+├── audits/               ← Individual audit pages
+│   ├── sunrise-plumbing-and-remodel.html
+│   ├── winkles-plumbing.html
+│   ├── jj-professional-tree-service.html
+│   ├── lm-tree-service.html
+│   └── anthonys-hughes-tree-stump-grinding.html
+└── blog/                 ← Individual blog post pages (create as needed)
 ```
 
 ---
 
-## Deploy to Cloudflare Pages (5 minutes)
+## How to Add a New Audit
 
-1. Go to https://dash.cloudflare.com
-2. In the sidebar, click **Compute (Workers)** → **Workers & Pages**
-3. Click **Create** → then the **Pages** tab
-4. Choose **Upload assets** (the drag-and-drop option)
-5. Name your project: `taeresults` (or whatever you want)
-6. Drag this entire `taeresults-site` folder into the upload area
-7. Click **Deploy**
+You need to do 3 things: add a card to the carousel, add a card to the grid, and create the detail page.
 
-Your site will be live at `taeresults.pages.dev` within seconds.
+### 1. Get your YouTube embed info
 
-## Connect your custom domain
+Upload your audit video to YouTube and grab two things:
+- **Video ID** — the part after `v=` in the URL (e.g. `https://youtu.be/abc123` → video ID is `abc123`)
+- **Thumbnail URL** — `https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
+- **Embed URL** — `https://www.youtube.com/embed/VIDEO_ID`
 
-1. In Cloudflare Pages, go to your project → **Custom domains**
-2. Click **Set up a custom domain**
-3. Enter `taeresults.com` (or your domain)
-4. Cloudflare will automatically configure the DNS since your domain is already on Cloudflare
+### 2. Add a card to the featured carousel
 
-## Set up the contact form
-
-The form currently uses FormSubmit.co (free, no account needed):
-
-1. Open `index.html`
-2. Find `action="https://formsubmit.co/taeresults1@gmail.com"`
-3. The first submission will send you a confirmation email — click to activate
-4. Deploy again (re-upload the folder)
-
-Other free form options:
-- **Formspree** (formspree.io) — 50 submissions/month free
-- **Basin** (usebasin.com) — 100 submissions/month free
-- **Google Forms** — embed or redirect to a Google Form
-
----
-
-## Adding a New Audit Video
-
-Audit videos live on the **audits.html** page in the "Audit Grid" section.
-
-### Step 1 — Add a card to audits.html
-
-Open `audits.html` and find the comment `<!-- Add more cards as you complete audits -->`. Right above it, paste a new card:
+Open `audits.html` and find the comment `<!-- FEATURED CARDS -->`.  
+Paste this block right after that comment (so it appears first/newest):
 
 ```html
-<a href="/audits/business-name.html" class="audit-card">
+<a href="/audits/business-name.html" class="featured-card">
+  <div class="featured-thumb">
+    <img src="https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg" alt="Business Name audit">
+    <span class="featured-badge">New</span>
+  </div>
+  <div class="featured-card-body">
+    <h3>Business Name</h3>
+    <p>City &middot; Industry</p>
+  </div>
+</a>
+```
+
+Keep only the newest 5 audits in the carousel. When you add a new one, remove the oldest one from this section (it still shows in the grid below).
+
+Remove the `<span class="featured-badge">New</span>` line from older cards when they're no longer new.
+
+### 3. Add a card to the "All Audits" grid
+
+In the same `audits.html`, find the `<!-- Audit Grid -->` section.  
+Paste this block at the top of the grid (right after the HTML comment):
+
+```html
+<a href="/audits/business-name.html" class="audit-card" data-industry="plumbing" data-city="knoxville">
   <div class="audit-thumb">
-    <img src="thumbnail.jpg" alt="Business Name audit">
+    <img src="https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg" alt="Business Name audit">
   </div>
   <div class="audit-card-body">
     <h3>Business Name</h3>
@@ -70,99 +76,121 @@ Open `audits.html` and find the comment `<!-- Add more cards as you complete aud
 </a>
 ```
 
-Replace:
-- `business-name.html` → the URL for the full audit page
-- `thumbnail.jpg` → path to a screenshot/thumbnail image (put it in an `images/` folder)
-- `Business Name` → the actual business name
-- `City` → the city (Knoxville, Maryville, etc.)
-- `Industry` → industry type (Plumbing, Dental, HVAC, etc.)
+**Important:** The `data-industry` and `data-city` attributes power the search and filter tabs.
+- `data-industry` must be **lowercase and hyphenated**: `tree-service`, `plumbing`, `hvac`, `dental`, `roofing`
+- `data-city` must be **lowercase**: `knoxville`, `maryville`, `sevierville`
+- Use `&amp;` in place of `&` inside business names (e.g. `J&amp;J Professional`)
 
-### Step 2 — Create the individual audit page
+### 4. Add a filter tab (if it's a new industry)
 
-1. Copy `audits/example-business.html`
-2. Rename it: `audits/business-name.html` (lowercase, hyphens, no spaces)
-3. Edit the title, meta description, video embed URL, and written summary
-4. Save and re-upload the folder
+If this is the first audit for a new industry, add a filter tab button in `audits.html`.  
+Find the `<div class="filter-tabs">` section and add:
 
-### Embedding videos
+```html
+<button class="filter-tab" data-filter="new-industry">New Industry</button>
+```
 
-Replace the iframe `src` with your embed URL:
+The `data-filter` value must exactly match the `data-industry` value on the cards.
 
-| Platform       | Embed URL format                                            |
-|----------------|-------------------------------------------------------------|
-| **Loom**       | `https://www.loom.com/embed/VIDEO_ID`                       |
-| **YouTube**    | `https://www.youtube.com/embed/VIDEO_ID`                    |
-| **Vimeo**      | `https://player.vimeo.com/video/VIDEO_ID`                   |
-| **Bunny Stream** | `https://iframe.mediadelivery.net/embed/LIBRARY_ID/VIDEO_ID` |
+### 5. Create the detail page
 
-To get a YouTube embed URL: open the video → click Share → Embed → copy the `src` value from the iframe code.
+Copy any existing file from `audits/` (e.g. `audits/winkles-plumbing.html`) and save it as `audits/your-business-name.html`.
+
+In the new file, replace:
+- The `<title>` tag with the business name
+- The `<meta name="description">` content
+- The `<h1>` with the business name
+- The `<p>` subtitle with the city and industry
+- The `iframe src` with `https://www.youtube.com/embed/VIDEO_ID`
+- The `iframe title` with the business name
+- The audit summary `<p>` tags with your written notes
+- The schema.org JSON-LD: name, description, thumbnailUrl, embedUrl, uploadDate
+
+**Filename rules:** lowercase, hyphens instead of spaces, no special characters.  
+Examples: `sunrise-plumbing-and-remodel.html`, `jj-professional-tree-service.html`
+
+### Embedding videos from other platforms
+
+| Platform     | Embed URL format                                                |
+|-------------|----------------------------------------------------------------|
+| YouTube      | `https://www.youtube.com/embed/VIDEO_ID`                       |
+| Loom         | `https://www.loom.com/embed/VIDEO_ID`                          |
+| Vimeo        | `https://player.vimeo.com/video/VIDEO_ID`                      |
+| Bunny Stream | `https://iframe.mediadelivery.net/embed/LIBRARY_ID/VIDEO_ID`   |
 
 ---
 
-## Adding a New Blog Post
+## How to Add a New Blog Post
 
-Blog posts live on the **audits.html** page in the "Blog" section below the audit videos.
+Same pattern as audits: add a card to the carousel, add a card to the grid, and create the detail page.
 
-### Step 1 — Add a blog card to audits.html
+### 1. Add a card to the featured carousel
 
-Open `audits.html` and find the comment `<!-- Add more blog cards here -->`. Right above it, paste:
+Open `blog.html` and find the comment `<!-- FEATURED BLOG CARDS -->`.  
+Paste this block right after that comment:
 
 ```html
-<a href="/blog/your-post-slug.html" class="blog-card">
+<a href="/blog/your-post-slug.html" class="featured-card featured-card--blog">
+  <div class="featured-card-body">
+    <span class="blog-date">Month Year</span>
+    <h3>Your Blog Post Title</h3>
+    <p>A 1-2 sentence excerpt or summary of the post.</p>
+  </div>
+</a>
+```
+
+Keep only the newest 3-5 posts in the carousel.
+
+### 2. Add a card to the "All Posts" grid
+
+In the same `blog.html`, find the `<!-- Blog Grid -->` section.  
+Paste this block at the top of the grid:
+
+```html
+<a href="/blog/your-post-slug.html" class="blog-card" data-topic="seo">
   <div class="blog-card-body">
     <span class="blog-date">Month Year</span>
     <h3>Your Blog Post Title</h3>
-    <p>A short 1-2 sentence description of what the post covers.</p>
+    <p>A 1-2 sentence excerpt or summary of the post.</p>
     <span class="blog-read-more">Read more &rarr;</span>
   </div>
 </a>
 ```
 
-Replace:
-- `your-post-slug.html` → the filename for your blog post (lowercase, hyphens)
-- `Month Year` → e.g. "July 2026"
-- Title and description with your actual content
+**The `data-topic` attribute** powers the filter tabs. Current topics:
+- `gbp` — Google Business Profile
+- `seo` — General SEO
+- `reviews` — Reviews
+- `strategy` — Strategy
 
-### Step 2 — Create the blog post page
+Add new topic filter tabs the same way as audit industry tabs (see step 4 above).
 
-Create a new file at `blog/your-post-slug.html`. Here's a full template:
+### 3. Create the blog post page
+
+Create a new folder called `blog/` if it doesn't exist yet.  
+Create a file like `blog/your-post-slug.html`.  
+Use the same page structure as the audit detail pages but replace the video embed with your blog content.
+
+Here's a minimal template:
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWNTYYCS59"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-WWNTYYCS59');
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Post Title — TAE Results</title>
-  <meta name="description" content="A brief description for search engines (under 160 characters).">
+  <title>Post Title — TAE Results Blog</title>
+  <meta name="description" content="Short summary of the post.">
   <link rel="stylesheet" href="../styles.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Your Post Title",
-    "description": "A brief description for search engines.",
-    "author": { "@type": "Person", "name": "TAE Results" },
-    "publisher": { "@type": "Organization", "name": "TAE Results" },
-    "datePublished": "2026-07-01"
-  }
-  </script>
 </head>
 <body>
-
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="logo"><img src="../logo.png" alt="TAE Results" class="logo-img"></a>
       <button class="mobile-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
       <nav>
         <a href="/audits.html">Audits</a>
+        <a href="/blog.html">Blog</a>
         <a href="/services.html">Services</a>
         <a href="/#free-audit" class="btn btn-primary">Get Free Audit</a>
       </nav>
@@ -171,27 +199,31 @@ Create a new file at `blog/your-post-slug.html`. Here's a full template:
 
   <section class="page-header">
     <div class="container">
-      <h1>Your Post Title</h1>
-      <p>July 2026</p>
+      <h1>Post Title</h1>
+      <p>Month Year</p>
     </div>
   </section>
 
   <section>
     <div class="container">
       <div class="audit-post">
-        <!-- Write your blog content here using <h2>, <p>, <ul>, <li> tags -->
+        <!-- Your blog content goes here -->
+        <p>Write your post content here using regular HTML.</p>
 
-        <p>Your intro paragraph goes here.</p>
-
-        <h2>First Section Heading</h2>
-        <p>Section content goes here.</p>
-
-        <h2>Second Section Heading</h2>
-        <p>More content here.</p>
-
-        <!-- Link back to audits page -->
-        <p style="margin-top: 48px;"><a href="/audits.html#blog" style="color: var(--accent-soft); font-weight: 600;">&larr; Back to all posts</a></p>
+        <h2>Subheading</h2>
+        <p>More content...</p>
       </div>
+      <div style="margin-top:2rem;">
+        <a href="/blog.html">&larr; Back to all posts</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" style="text-align:center;padding:3rem 1rem;">
+    <div class="container">
+      <h2>Want a free audit for your business?</h2>
+      <p>See exactly how you show up on Google — and what to fix.</p>
+      <a href="/#free-audit" class="btn btn-primary">Get Your Free Audit</a>
     </div>
   </section>
 
@@ -201,45 +233,25 @@ Create a new file at `blog/your-post-slug.html`. Here's a full template:
       <p>Local SEO for businesses in East Tennessee &middot; &copy; 2026</p>
     </div>
   </footer>
-
 </body>
 </html>
 ```
 
-### Step 3 — Deploy
+---
 
-Re-upload your entire site folder to Cloudflare Pages.
+## Deploying
+
+Push this repo to GitHub and connect to Cloudflare Pages (or your host). Every push to `main` auto-deploys.
 
 ---
 
-## SEO Schema Markup
+## Quick Reference
 
-The site includes structured data (JSON-LD) for search engines:
-
-- **index.html** — `LocalBusiness` schema with your services, service area (9 East Tennessee cities), geo coordinates, and contact info
-- **audits.html** — `CollectionPage` schema
-- **services.html** — `WebPage` schema
-
-### To customize the schema:
-
-1. Open `index.html` and find the `<script type="application/ld+json">` block
-2. Update the `"url"` fields to your actual domain once it's live
-3. Add your social media links to the `"sameAs"` array, e.g.:
-   ```json
-   "sameAs": [
-     "https://www.facebook.com/taeresults",
-     "https://www.instagram.com/taeresults"
-   ]
-   ```
-4. Add or remove cities from the `"serviceArea"` array as needed
-5. If you get a physical address or phone number, add `"telephone"` and full `"address"` fields
-
-### Validate your schema:
-
-After deploying, paste your URL into [Google's Rich Results Test](https://search.google.com/test/rich-results) to make sure everything is picked up correctly.
-
----
-
-## Updating the site
-
-Every time you make changes, just re-upload the folder through the Cloudflare Pages dashboard. Alternatively, connect a GitHub repo for automatic deploys on every push.
+| Task | Files to edit |
+|------|--------------|
+| Add an audit | `audits.html` (carousel + grid) + create `audits/business-name.html` |
+| Add a blog post | `blog.html` (carousel + grid) + create `blog/post-slug.html` |
+| Add a new industry filter | `audits.html` → add a `<button class="filter-tab">` |
+| Add a new blog topic filter | `blog.html` → add a `<button class="filter-tab">` |
+| Change styles | `styles.css` |
+| Update nav links | Edit the `<nav>` in every `.html` file |
