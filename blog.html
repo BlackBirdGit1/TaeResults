@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWNTYYCS59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WWNTYYCS59');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — TAE Results</title>
+  <meta name="description" content="Tips, insights, and local SEO strategies for East Tennessee businesses.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo"><img src="logo.png" alt="TAE Results" class="logo-img"></a>
+      <button class="mobile-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+      <nav>
+        <a href="/audits.html">Audits</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/services.html">Services</a>
+        <a href="/#free-audit" class="btn btn-primary">Get Free Audit</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Blog</h1>
+      <p>Tips, insights, and local SEO strategies for East Tennessee businesses.</p>
+    </div>
+  </section>
+
+  <!-- Featured Carousel -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="featured-header">
+        <h2>Latest Posts</h2>
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Previous">&larr;</button>
+          <button class="carousel-btn" id="carousel-next" aria-label="Next">&rarr;</button>
+        </div>
+      </div>
+      <div class="carousel-track" id="carousel">
+
+        <!-- FEATURED BLOG CARDS — keep the newest 3-5 posts here -->
+        <a href="#" class="featured-card featured-card--blog">
+          <div class="featured-card-body">
+            <span class="blog-date">June 2026</span>
+            <h3>Why Your Google Business Profile Is Costing You Customers</h3>
+            <p>Most local businesses have their GBP set up wrong. Here are the 5 biggest mistakes I see in every audit.</p>
+          </div>
+        </a>
+
+        <a href="#" class="featured-card featured-card--blog">
+          <div class="featured-card-body">
+            <span class="blog-date">June 2026</span>
+            <h3>Local SEO vs. Paid Ads: What Actually Works for Small Businesses</h3>
+            <p>You don't need to spend thousands on Google Ads. Here's why organic local rankings beat paid every time.</p>
+          </div>
+        </a>
+
+        <a href="#" class="featured-card featured-card--blog">
+          <div class="featured-card-body">
+            <span class="blog-date">June 2026</span>
+            <h3>How to Get More Google Reviews Without Being Annoying</h3>
+            <p>A simple review system that works on autopilot — no awkward asks required.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Search + Filter + Full Grid -->
+  <section class="browse-section">
+    <div class="container">
+      <h2>All Posts</h2>
+
+      <!-- Search & Filters -->
+      <div class="browse-controls">
+        <div class="search-wrap">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="blog-search" placeholder="Search posts&hellip;" autocomplete="off">
+        </div>
+        <div class="filter-tabs" id="topic-filters">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="gbp">Google Business Profile</button>
+          <button class="filter-tab" data-filter="seo">SEO</button>
+          <button class="filter-tab" data-filter="reviews">Reviews</button>
+          <button class="filter-tab" data-filter="strategy">Strategy</button>
+          <!-- Add more topic tabs as you write more posts -->
+        </div>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="blog-grid" id="blog-grid">
+
+        <!--
+          HOW TO ADD A NEW BLOG CARD
+          ===========================
+          Copy the block below and fill in:
+            href         → /blog/your-post-slug.html
+            data-topic   → lowercase topic tag (gbp, seo, reviews, strategy, etc.)
+            blog-date    → Month Year
+            h3           → Post title
+            p            → Short excerpt (1-2 sentences)
+        -->
+
+        <a href="#" class="blog-card" data-topic="gbp">
+          <div class="blog-card-body">
+            <span class="blog-date">June 2026</span>
+            <h3>Why Your Google Business Profile Is Costing You Customers</h3>
+            <p>Most local businesses have their GBP set up wrong. Here are the 5 biggest mistakes I see in every audit.</p>
+            <span class="blog-read-more">Read more &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-card" data-topic="strategy">
+          <div class="blog-card-body">
+            <span class="blog-date">June 2026</span>
+            <h3>Local SEO vs. Paid Ads: What Actually Works for Small Businesses</h3>
+            <p>You don't need to spend thousands on Google Ads. Here's why organic local rankings beat paid every time.</p>
+            <span class="blog-read-more">Read more &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-card" data-topic="reviews">
+          <div class="blog-card-body">
+            <span class="blog-date">June 2026</span>
+            <h3>How to Get More Google Reviews Without Being Annoying</h3>
+            <p>A simple review system that works on autopilot — no awkward asks required.</p>
+            <span class="blog-read-more">Read more &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Add more blog cards here -->
+
+      </div>
+
+      <!-- Empty state -->
+      <div class="browse-empty" id="browse-empty" style="display:none;">
+        <p>No posts match your search. Try a different term or topic.</p>
+      </div>
+
+      <!-- Load More -->
+      <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
+        <button class="btn btn-secondary" id="load-more">Show more posts</button>
+      </div>
+
+      <!-- Result count -->
+      <p class="result-count" id="result-count"></p>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" style="text-align:center;">
+    <div class="container">
+      <h2>Want a free audit for your business?</h2>
+      <p style="color:var(--text-secondary);margin-bottom:28px;">See exactly how you show up on Google — and what to fix.</p>
+      <a href="/#free-audit" class="btn btn-primary" style="padding:14px 36px;border-radius:50px;">Get Your Free Audit</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>TAE Results</p>
+      <p>Local SEO for businesses in East Tennessee &middot; &copy; 2026</p>
+    </div>
+  </footer>
+
+  <script>
+  (function() {
+    // === Carousel ===
+    var track = document.getElementById('carousel');
+    var prev = document.getElementById('carousel-prev');
+    var next = document.getElementById('carousel-next');
+
+    if (track && prev && next) {
+      var scrollAmt = function() { var c = track.querySelector('.featured-card'); return c ? c.offsetWidth + 16 : 340; };
+      prev.addEventListener('click', function() { track.scrollBy({ left: -scrollAmt(), behavior: 'smooth' }); });
+      next.addEventListener('click', function() { track.scrollBy({ left: scrollAmt(), behavior: 'smooth' }); });
+    }
+
+    // === Search + Filter + Load More ===
+    var BATCH = 9;
+    var grid = document.getElementById('blog-grid');
+    var search = document.getElementById('blog-search');
+    var filterBtns = document.querySelectorAll('.filter-tab');
+    var emptyEl = document.getElementById('browse-empty');
+    var loadMoreWrap = document.getElementById('load-more-wrap');
+    var loadMoreBtn = document.getElementById('load-more');
+    var countEl = document.getElementById('result-count');
+    var activeFilter = 'all';
+    var showing = BATCH;
+
+    function getCards() { return Array.from(grid.querySelectorAll('.blog-card')); }
+
+    function applyFilters() {
+      var q = search.value.toLowerCase().trim();
+      var cards = getCards();
+      var matched = 0;
+
+      cards.forEach(function(card) {
+        var title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        var excerpt = card.querySelector('p')?.textContent.toLowerCase() || '';
+        var topic = card.dataset.topic || '';
+        var text = title + ' ' + excerpt + ' ' + topic;
+        var matchSearch = !q || text.includes(q);
+        var matchFilter = activeFilter === 'all' || topic === activeFilter;
+        var matchBoth = matchSearch && matchFilter;
+
+        if (matchBoth) {
+          matched++;
+          card.style.display = matched <= showing ? '' : 'none';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      emptyEl.style.display = matched === 0 ? '' : 'none';
+      loadMoreWrap.style.display = matched > showing ? '' : 'none';
+      countEl.textContent = matched > 0 ? matched + ' post' + (matched !== 1 ? 's' : '') : '';
+    }
+
+    search.addEventListener('input', function() { showing = BATCH; applyFilters(); });
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        showing = BATCH;
+        applyFilters();
+      });
+    });
+
+    loadMoreBtn.addEventListener('click', function() { showing += BATCH; applyFilters(); });
+
+    applyFilters();
+  })();
+  </script>
+
+</body>
+</html>

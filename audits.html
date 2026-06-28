@@ -47,6 +47,7 @@
       <button class="mobile-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
       <nav>
         <a href="/audits.html">Audits</a>
+        <a href="/blog.html">Blog</a>
         <a href="/services.html">Services</a>
         <a href="/#free-audit" class="btn btn-primary">Get Free Audit</a>
       </nav>
@@ -61,32 +62,136 @@
     </div>
   </section>
 
-  <!-- Audit Grid -->
-  <section>
+  <!-- Featured Carousel -->
+  <section class="featured-section">
     <div class="container">
-      <div class="audit-grid">
+      <div class="featured-header">
+        <h2>Latest Audits</h2>
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Previous">&larr;</button>
+          <button class="carousel-btn" id="carousel-next" aria-label="Next">&rarr;</button>
+        </div>
+      </div>
+      <div class="carousel-track" id="carousel">
 
-        <a href="/audits/anthonys-hughes-tree-stump-grinding.html" class="audit-card">
-          <div class="audit-thumb">
-            <img src="https://img.youtube.com/vi/C8ZrMr50xd8/hqdefault.jpg" alt="Anthony's Hughes Tree & Stump Grinding audit">
+        <!-- FEATURED CARDS — keep the newest 3-5 audits here -->
+        <a href="/audits/sunrise-plumbing-and-remodel.html" class="featured-card">
+          <div class="featured-thumb">
+            <img src="https://img.youtube.com/vi/izpOFm1NSpU/hqdefault.jpg" alt="Sunrise Plumbing and Remodel LLC audit">
+            <span class="featured-badge">New</span>
           </div>
-          <div class="audit-card-body">
-            <h3>Anthony's Hughes Tree &amp; Stump Grinding</h3>
+          <div class="featured-card-body">
+            <h3>Sunrise Plumbing and Remodel LLC</h3>
+            <p>Knoxville &middot; Plumbing</p>
+          </div>
+        </a>
+
+        <a href="/audits/winkles-plumbing.html" class="featured-card">
+          <div class="featured-thumb">
+            <img src="https://img.youtube.com/vi/3-uk5SuaFi0/hqdefault.jpg" alt="Winkles Plumbing audit">
+            <span class="featured-badge">New</span>
+          </div>
+          <div class="featured-card-body">
+            <h3>Winkles Plumbing</h3>
+            <p>Knoxville &middot; Plumbing</p>
+          </div>
+        </a>
+
+        <a href="/audits/jj-professional-tree-service.html" class="featured-card">
+          <div class="featured-thumb">
+            <img src="https://img.youtube.com/vi/o_wpcFxa2jM/hqdefault.jpg" alt="J&J Professional Tree Service audit">
+            <span class="featured-badge">New</span>
+          </div>
+          <div class="featured-card-body">
+            <h3>J&amp;J Professional Tree Service</h3>
             <p>Knoxville &middot; Tree Service</p>
           </div>
         </a>
 
-        <a href="/audits/lm-tree-service.html" class="audit-card">
-          <div class="audit-thumb">
+        <a href="/audits/lm-tree-service.html" class="featured-card">
+          <div class="featured-thumb">
             <img src="https://img.youtube.com/vi/Yi8VXXGpmTY/hqdefault.jpg" alt="L&M Tree Service audit">
+            <span class="featured-badge">New</span>
           </div>
-          <div class="audit-card-body">
+          <div class="featured-card-body">
             <h3>L&amp;M Tree Service</h3>
             <p>Knoxville &middot; Tree Service</p>
           </div>
         </a>
 
-        <a href="/audits/jj-professional-tree-service.html" class="audit-card">
+        <a href="/audits/anthonys-hughes-tree-stump-grinding.html" class="featured-card">
+          <div class="featured-thumb">
+            <img src="https://img.youtube.com/vi/C8ZrMr50xd8/hqdefault.jpg" alt="Anthony's Hughes Tree & Stump Grinding audit">
+          </div>
+          <div class="featured-card-body">
+            <h3>Anthony's Hughes Tree &amp; Stump Grinding</h3>
+            <p>Knoxville &middot; Tree Service</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Search + Filter + Full Grid -->
+  <section class="browse-section">
+    <div class="container">
+      <h2>All Audits</h2>
+
+      <!-- Search & Filters -->
+      <div class="browse-controls">
+        <div class="search-wrap">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="audit-search" placeholder="Search by business name or city&hellip;" autocomplete="off">
+        </div>
+        <div class="filter-tabs" id="industry-filters">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="tree-service">Tree Service</button>
+          <button class="filter-tab" data-filter="plumbing">Plumbing</button>
+          <button class="filter-tab" data-filter="hvac">HVAC</button>
+          <button class="filter-tab" data-filter="dental">Dental</button>
+          <button class="filter-tab" data-filter="roofing">Roofing</button>
+          <!-- Add more filter tabs as you audit new industries -->
+        </div>
+      </div>
+
+      <!-- Audit Grid -->
+      <div class="audit-grid" id="audit-grid">
+
+        <!--
+          HOW TO ADD A NEW AUDIT CARD
+          ============================
+          Copy the block below and fill in:
+            href         → /audits/your-business-name.html
+            data-industry → lowercase, hyphenated (tree-service, plumbing, hvac, dental, roofing, etc.)
+            data-city     → lowercase city name (knoxville, maryville, sevierville, etc.)
+            img src       → YouTube thumbnail: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg
+            alt           → Business Name audit
+            h3            → Business Name (use &amp; for &)
+            p             → City · Industry
+        -->
+
+        <a href="/audits/sunrise-plumbing-and-remodel.html" class="audit-card" data-industry="plumbing" data-city="knoxville">
+          <div class="audit-thumb">
+            <img src="https://img.youtube.com/vi/izpOFm1NSpU/hqdefault.jpg" alt="Sunrise Plumbing and Remodel LLC audit">
+          </div>
+          <div class="audit-card-body">
+            <h3>Sunrise Plumbing and Remodel LLC</h3>
+            <p>Knoxville &middot; Plumbing</p>
+          </div>
+        </a>
+
+        <a href="/audits/winkles-plumbing.html" class="audit-card" data-industry="plumbing" data-city="knoxville">
+          <div class="audit-thumb">
+            <img src="https://img.youtube.com/vi/3-uk5SuaFi0/hqdefault.jpg" alt="Winkles Plumbing audit">
+          </div>
+          <div class="audit-card-body">
+            <h3>Winkles Plumbing</h3>
+            <p>Knoxville &middot; Plumbing</p>
+          </div>
+        </a>
+
+        <a href="/audits/jj-professional-tree-service.html" class="audit-card" data-industry="tree-service" data-city="knoxville">
           <div class="audit-thumb">
             <img src="https://img.youtube.com/vi/o_wpcFxa2jM/hqdefault.jpg" alt="J&J Professional Tree Service audit">
           </div>
@@ -96,50 +201,52 @@
           </div>
         </a>
 
+        <a href="/audits/lm-tree-service.html" class="audit-card" data-industry="tree-service" data-city="knoxville">
+          <div class="audit-thumb">
+            <img src="https://img.youtube.com/vi/Yi8VXXGpmTY/hqdefault.jpg" alt="L&M Tree Service audit">
+          </div>
+          <div class="audit-card-body">
+            <h3>L&amp;M Tree Service</h3>
+            <p>Knoxville &middot; Tree Service</p>
+          </div>
+        </a>
+
+        <a href="/audits/anthonys-hughes-tree-stump-grinding.html" class="audit-card" data-industry="tree-service" data-city="knoxville">
+          <div class="audit-thumb">
+            <img src="https://img.youtube.com/vi/C8ZrMr50xd8/hqdefault.jpg" alt="Anthony's Hughes Tree & Stump Grinding audit">
+          </div>
+          <div class="audit-card-body">
+            <h3>Anthony's Hughes Tree &amp; Stump Grinding</h3>
+            <p>Knoxville &middot; Tree Service</p>
+          </div>
+        </a>
+
         <!-- Add more cards as you complete audits -->
 
       </div>
+
+      <!-- Empty state -->
+      <div class="browse-empty" id="browse-empty" style="display:none;">
+        <p>No audits match your search. Try a different term or filter.</p>
+      </div>
+
+      <!-- Load More -->
+      <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
+        <button class="btn btn-secondary" id="load-more">Show more audits</button>
+      </div>
+
+      <!-- Result count -->
+      <p class="result-count" id="result-count"></p>
+
     </div>
   </section>
 
-  <!-- Blog Section -->
-  <section class="blog-section" id="blog">
+  <!-- CTA -->
+  <section class="cta-section" style="text-align:center;">
     <div class="container">
-      <h2>Blog</h2>
-      <p class="blog-subtitle">Tips, insights, and local SEO strategies for East Tennessee businesses.</p>
-      <div class="blog-grid">
-
-        <!-- BLOG POST CARD — duplicate and edit for each post -->
-        <a href="#" class="blog-card">
-          <div class="blog-card-body">
-            <span class="blog-date">June 2026</span>
-            <h3>Why Your Google Business Profile Is Costing You Customers</h3>
-            <p>Most local businesses have their GBP set up wrong. Here are the 5 biggest mistakes I see in every audit.</p>
-            <span class="blog-read-more">Read more &rarr;</span>
-          </div>
-        </a>
-
-        <a href="#" class="blog-card">
-          <div class="blog-card-body">
-            <span class="blog-date">June 2026</span>
-            <h3>Local SEO vs. Paid Ads: What Actually Works for Small Businesses</h3>
-            <p>You don't need to spend thousands on Google Ads. Here's why organic local rankings beat paid every time.</p>
-            <span class="blog-read-more">Read more &rarr;</span>
-          </div>
-        </a>
-
-        <a href="#" class="blog-card">
-          <div class="blog-card-body">
-            <span class="blog-date">June 2026</span>
-            <h3>How to Get More Google Reviews Without Being Annoying</h3>
-            <p>A simple review system that works on autopilot — no awkward asks required.</p>
-            <span class="blog-read-more">Read more &rarr;</span>
-          </div>
-        </a>
-
-        <!-- Add more blog cards here -->
-
-      </div>
+      <h2>Want a free audit like this for your business?</h2>
+      <p style="color:var(--text-secondary);margin-bottom:28px;">See exactly how you show up on Google — and what to fix.</p>
+      <a href="/#free-audit" class="btn btn-primary" style="padding:14px 36px;border-radius:50px;">Get Your Free Audit</a>
     </div>
   </section>
 
@@ -150,6 +257,83 @@
       <p>Local SEO for businesses in East Tennessee &middot; &copy; 2026</p>
     </div>
   </footer>
+
+  <script>
+  (function() {
+    // === Carousel ===
+    const track = document.getElementById('carousel');
+    const prev = document.getElementById('carousel-prev');
+    const next = document.getElementById('carousel-next');
+
+    if (track && prev && next) {
+      const scrollAmt = () => track.querySelector('.featured-card')?.offsetWidth + 16 || 340;
+      prev.addEventListener('click', () => track.scrollBy({ left: -scrollAmt(), behavior: 'smooth' }));
+      next.addEventListener('click', () => track.scrollBy({ left: scrollAmt(), behavior: 'smooth' }));
+    }
+
+    // === Search + Filter + Load More ===
+    const BATCH = 9;
+    const grid = document.getElementById('audit-grid');
+    const search = document.getElementById('audit-search');
+    const filterBtns = document.querySelectorAll('.filter-tab');
+    const emptyEl = document.getElementById('browse-empty');
+    const loadMoreWrap = document.getElementById('load-more-wrap');
+    const loadMoreBtn = document.getElementById('load-more');
+    const countEl = document.getElementById('result-count');
+    let activeFilter = 'all';
+    let showing = BATCH;
+
+    function getCards() { return Array.from(grid.querySelectorAll('.audit-card')); }
+
+    function applyFilters() {
+      const q = search.value.toLowerCase().trim();
+      const cards = getCards();
+      let matched = 0;
+
+      cards.forEach(function(card, i) {
+        const name = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        const city = card.dataset.city || '';
+        const industry = card.dataset.industry || '';
+        const text = name + ' ' + city + ' ' + industry;
+        const matchSearch = !q || text.includes(q);
+        const matchFilter = activeFilter === 'all' || industry === activeFilter;
+        const matchBoth = matchSearch && matchFilter;
+
+        if (matchBoth) {
+          matched++;
+          card.style.display = matched <= showing ? '' : 'none';
+          card.dataset.matched = 'true';
+        } else {
+          card.style.display = 'none';
+          card.dataset.matched = 'false';
+        }
+      });
+
+      emptyEl.style.display = matched === 0 ? '' : 'none';
+      loadMoreWrap.style.display = matched > showing ? '' : 'none';
+      countEl.textContent = matched > 0 ? matched + ' audit' + (matched !== 1 ? 's' : '') : '';
+    }
+
+    search.addEventListener('input', function() { showing = BATCH; applyFilters(); });
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        showing = BATCH;
+        applyFilters();
+      });
+    });
+
+    loadMoreBtn.addEventListener('click', function() {
+      showing += BATCH;
+      applyFilters();
+    });
+
+    applyFilters();
+  })();
+  </script>
 
 </body>
 </html>
