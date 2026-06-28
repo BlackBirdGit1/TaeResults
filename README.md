@@ -1,4 +1,4 @@
-# TAE Results — Website
+# Tae Results — Website
 
 Local SEO audits and blog for East Tennessee businesses.  
 Live at [taeresults.com](https://taeresults.com)
@@ -179,14 +179,14 @@ Here's a minimal template:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Post Title — TAE Results Blog</title>
+  <title>Post Title — Tae Results Blog</title>
   <meta name="description" content="Short summary of the post.">
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/" class="logo"><img src="../logo.png" alt="TAE Results" class="logo-img"></a>
+      <a href="/" class="logo"><img src="../logo.png" alt="Tae Results" class="logo-img"></a>
       <button class="mobile-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
       <nav>
         <a href="/audits.html">Audits</a>
@@ -229,7 +229,7 @@ Here's a minimal template:
 
   <footer class="site-footer">
     <div class="container">
-      <p>TAE Results</p>
+      <p>Tae Results</p>
       <p>Local SEO for businesses in East Tennessee &middot; &copy; 2026</p>
     </div>
   </footer>
