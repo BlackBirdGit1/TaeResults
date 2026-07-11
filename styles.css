@@ -553,6 +553,40 @@ nav a:hover { color: var(--text); }
 
 .site-footer p + p { margin-top: 4px; }
 
+/* ===== Audit Summary (written audit content) ===== */
+
+.audit-summary {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 0 60px;
+  line-height: 1.75;
+}
+
+.audit-summary h2 {
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+}
+
+.audit-summary h2:first-of-type {
+  margin-top: 32px;
+  border-top: none;
+  padding-top: 0;
+}
+
+.audit-summary p {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.audit-summary strong {
+  color: var(--text);
+}
+
 /* ===== Audit Post ===== */
 
 .audit-post {
