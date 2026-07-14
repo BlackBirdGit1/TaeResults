@@ -587,6 +587,18 @@ nav a:hover { color: var(--text); }
   color: var(--text);
 }
 
+.audit-summary a {
+  color: var(--accent, #2563eb);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.audit-summary a:hover {
+  opacity: 0.7;
+}
+
 /* ===== Audit Post ===== */
 
 .audit-post {
