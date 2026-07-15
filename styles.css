@@ -969,3 +969,77 @@ nav a:hover { color: var(--text); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
 }
+
+/* ===== Blog Story Format (engagement posts) ===== */
+
+.blog-story {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 0 60px;
+  line-height: 1.85;
+}
+
+.blog-story p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+}
+
+.blog-story .story-highlight {
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 32px 0;
+}
+
+.blog-story .story-break {
+  display: block;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  letter-spacing: 0.3em;
+  margin: 36px 0;
+}
+
+.blog-story .story-signoff {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.blog-story a {
+  color: var(--accent, #2563eb);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.blog-story a:hover {
+  opacity: 0.7;
+}
+
+/* Blog tag pill */
+.blog-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.blog-tag--insights {
+  background: rgba(245, 158, 11, 0.12);
+  color: #b45309;
+}
+
+.blog-tag--educational {
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
