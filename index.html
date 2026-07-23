@@ -126,20 +126,19 @@
     .hdr-in { display: flex; align-items: center; gap: 24px; }
     .hdr-logo { display: flex; align-items: center; }
     .hdr-logo img { height: 22px; width: auto; }
-    .hdr-ph {
-      font-size: 0.85rem; font-weight: 600; color: var(--text-2);
-      margin-right: auto; white-space: nowrap;
-    }
-    .hdr-ph:hover { color: var(--text); }
-    .hdr-nav { display: flex; align-items: center; gap: 28px; }
+    .hdr-nav { display: flex; align-items: center; gap: 28px; margin-left: auto; }
     .hdr-nav a { font-size: 0.88rem; font-weight: 500; color: var(--text-2); transition: color .2s; }
     .hdr-nav a:hover { color: var(--text); }
+    .hdr-btn {
+      background: var(--text); color: #fff !important; padding: 9px 20px;
+      border-radius: 8px; font-weight: 600; font-size: 0.88rem; transition: background .2s;
+    }
+    .hdr-btn:hover { background: #333; }
     .hdr-tog {
       display: none; background: none; border: none;
       color: var(--text); font-size: 1.5rem; cursor: pointer; line-height: 1;
     }
     @media (max-width:700px) {
-      .hdr-ph { display: none; }
       .hdr-tog { display: block; margin-left: auto; }
       .hdr-nav {
         display: none; position: absolute; top: 100%; left: 0; right: 0;
@@ -342,12 +341,13 @@
   <header class="hdr">
     <div class="w hdr-in">
       <a href="/" class="hdr-logo"><img src="logo.png" alt="Tae Results"></a>
-      <a href="tel:9127871515" class="hdr-ph">(912) 787-1515</a>
       <button class="hdr-tog" onclick="document.querySelector('.hdr-nav').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
       <nav class="hdr-nav">
         <a href="/audits.html">Audits</a>
+        <a href="/blog.html">Blog</a>
         <a href="/services.html">Services</a>
         <a href="/contact.html">Contact</a>
+        <a href="#free-audit" class="hdr-btn">Get Free Audit</a>
       </nav>
     </div>
   </header>
@@ -365,16 +365,10 @@
         <div>
           <div class="vid-frame">
             <div class="vid-r">
-              <!--
-                ╔══════════════════════════════════════════════════════╗
-                ║  REPLACE "your_video_id_here" WITH YOUR WISTIA ID  ║
-                ║  It appears twice below — update both places.       ║
-                ╚══════════════════════════════════════════════════════╝
-              -->
-              <script src="https://fast.wistia.com/embed/medias/your_video_id_here.jsonp" async></script>
-              <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
-              <div class="wistia_embed wistia_async_your_video_id_here seo=true videoFoam=true"
-                   style="height:100%;position:relative;width:100%;">&nbsp;</div>
+              <script src="https://fast.wistia.com/player.js" async></script>
+              <script src="https://fast.wistia.com/embed/f0yexrl25s.js" async type="module"></script>
+              <style>wistia-player[media-id='f0yexrl25s']:not(:defined){background:center/contain no-repeat url('https://fast.wistia.com/embed/medias/f0yexrl25s/swatch');display:block;filter:blur(5px);padding-top:56.25%;}</style>
+              <wistia-player media-id="f0yexrl25s" aspect="1.7777777777777777"></wistia-player>
             </div>
           </div>
           <p class="vid-cap">3 minutes — I walk through exactly what I look at and what I fix.</p>
