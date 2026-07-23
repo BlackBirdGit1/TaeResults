@@ -37,11 +37,7 @@
     },
     "areaServed": {
       "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": 35.9606,
-        "longitude": -83.9207
-      },
+      "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 35.9606, "longitude": -83.9207 },
       "geoRadius": "80000"
     },
     "address": {
@@ -52,11 +48,7 @@
       "postalCode": "37921",
       "addressCountry": "US"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 35.9606,
-      "longitude": -83.9207
-    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 35.9606, "longitude": -83.9207 },
     "serviceArea": [
       { "@type": "City", "name": "Knoxville", "addressRegion": "TN" },
       { "@type": "City", "name": "Powell", "addressRegion": "TN" },
@@ -73,54 +65,12 @@
     ],
     "knowsAbout": ["Local SEO", "Google Business Profile Optimization", "Google Maps Ranking", "Local Citations", "Review Strategy", "On-Page SEO", "Schema Markup", "NAP Consistency", "Content Authority"],
     "makesOffer": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Free Local SEO Video Audit",
-          "description": "Personalized video audit showing exactly where your business stands on Google and what to fix."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Google Business Profile Optimization",
-          "description": "Complete GBP optimization including categories, services palette, photos, reviews, bookings, FAQ, and profile completeness."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Website SEO",
-          "description": "On-page SEO including title tags, header tags, schema markup, NAP consistency, Core Web Vitals, and mobile optimization."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Local Listings and Citations",
-          "description": "Build and clean up listings on 50+ directories including Apple Business Connect, Bing Places, Yelp, Nextdoor, and niche directories."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Review Strategy and System",
-          "description": "Build a repeatable review acquisition system with direct links, QR codes, follow-up templates, and response management."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Content and Local Authority",
-          "description": "Service pages, area pages, and content strategy that proves topical and local authority to Google."
-        }
-      }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Free Local SEO Video Audit", "description": "Personalized video audit showing exactly where your business stands on Google and what to fix." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Business Profile Optimization", "description": "Complete GBP optimization including categories, services palette, photos, reviews, bookings, FAQ, and profile completeness." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website SEO", "description": "On-page SEO including title tags, header tags, schema markup, NAP consistency, Core Web Vitals, and mobile optimization." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local Listings and Citations", "description": "Build and clean up listings on 50+ directories for consistent business information across the internet." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Review Strategy and System", "description": "Build a repeatable review acquisition system with direct links, QR codes, follow-up templates, and response management." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content and Local Authority", "description": "Service pages, area pages, and content strategy that proves topical and local authority to Google." } }
     ],
     "sameAs": []
   }
@@ -132,185 +82,150 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="logo"><img src="logo.png" alt="Tae Results" class="logo-img"></a>
+      <a href="tel:9127871515" class="header-phone">(912) 787-1515</a>
       <button class="mobile-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
       <nav>
         <a href="/audits.html">Audits</a>
-        <a href="/blog.html">Blog</a>
         <a href="/services.html">Services</a>
         <a href="/contact.html">Contact</a>
-        <a href="#free-audit" class="btn btn-primary">Get Free Audit</a>
+        <a href="#free-audit" class="btn btn-primary">Free Audit</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
+  <!-- Hero — left-aligned, emotional hook as visible headline, keyword H1 for SEO -->
+  <section class="hero hero--left">
     <div class="container">
-      <h1>Internet Marketing Service Knoxville TN</h1>
-      <p class="hero-sub">Your competitors are showing up on Google instead of you. I fix that. I get local businesses into the top 3 on Google Search and Google Maps — where more than half of every customer click goes.</p>
-      <a href="#free-audit" class="btn btn-primary">Show Me Where I Stand &darr;</a>
+      <h1 class="sr-only">Internet Marketing Service Knoxville TN</h1>
+      <p class="hero-kicker">Local SEO for East Tennessee businesses</p>
+      <p class="hero-headline">Your Competitors Are Beating You on Google.<br>Here's Exactly Why.</p>
+      <p class="hero-sub">I find every issue holding your Google rankings back — your business profile, your website, your citations, your reviews — and I fix them. In 12 weeks, you show up where your customers are actually looking.</p>
+      <a href="#free-audit" class="btn btn-primary btn-hero">Get Your Free Video Audit</a>
     </div>
   </section>
 
-  <!-- Video Intro + Email Capture -->
-  <section class="intro-section">
+  <!-- Wistia Video Intro -->
+  <section class="video-intro">
     <div class="container">
-      <div class="intro-grid">
-
-        <!-- Wistia Video -->
-        <div class="intro-video">
-          <div class="intro-video-wrap">
-            <!-- REPLACE your_video_id_here WITH YOUR ACTUAL WISTIA VIDEO ID -->
-            <script src="https://fast.wistia.com/embed/medias/your_video_id_here.jsonp" async></script>
-            <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
-            <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
-              <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
-                <div class="wistia_embed wistia_async_your_video_id_here seo=true videoFoam=true" style="height:100%;position:relative;width:100%;">&nbsp;</div>
-              </div>
+      <div class="video-intro-inner">
+        <div class="video-intro-player">
+          <!-- REPLACE your_video_id_here WITH YOUR ACTUAL WISTIA VIDEO ID (appears 2x below) -->
+          <script src="https://fast.wistia.com/embed/medias/your_video_id_here.jsonp" async></script>
+          <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+          <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <div class="wistia_embed wistia_async_your_video_id_here seo=true videoFoam=true" style="height:100%;position:relative;width:100%;">&nbsp;</div>
             </div>
           </div>
         </div>
-
-        <!-- Email Capture -->
-        <div class="intro-capture">
-          <h2>3 Things You Can Fix Today to Rank Higher on Google</h2>
-          <p>Most local businesses are invisible on Google because of three fixable mistakes. Drop your email and I will send you exactly what they are — free, no strings.</p>
-          <form class="capture-form" action="https://formsubmit.co/taeresults1@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="3 Tips Request — Tae Results">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_autoresponse" value="Thanks for signing up! Here are your 3 tips to start ranking higher on Google. I'll send them to this email shortly. — Tae, Tae Results">
-            <input type="email" name="email" placeholder="Your email address" required>
-            <button type="submit" class="btn btn-primary">Send Me the 3 Tips</button>
-          </form>
-          <p class="capture-note">No spam. Just 3 actionable tips from someone who audits local businesses every day.</p>
-        </div>
-
+        <p class="video-intro-caption">Watch me walk through exactly what I look at and what I fix — 3 minutes.</p>
       </div>
     </div>
   </section>
 
-  <!-- Problem -->
-  <section class="problem">
+  <!-- What I Actually Do — scannable, left-aligned blocks -->
+  <section class="what-section">
     <div class="container">
-      <div class="problem-lines">
-        <p>Right now, someone in Knoxville is searching for <strong>exactly what you offer.</strong></p>
-        <p>Google is showing them the <strong>top 3 businesses</strong> — and those three get more than half of every click.</p>
-        <p>If that's not you — <strong>you're paying for invisibility.</strong></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- What You Get -->
-  <section class="cards-section">
-    <div class="container">
-      <h2>What I Fix for Local Businesses</h2>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <h3>Google Business Profile</h3>
-          <p>Categories, services, photos, reviews, bookings, FAQ — I optimize everything Google uses to decide if your business shows up in Maps. <a href="/services.html">See all services &rarr;</a></p>
+      <h2>What Happens When We Work Together</h2>
+      <p class="what-lead">I follow the same 12-week process for every client. No guesswork, no vague promises. Here is what you get.</p>
+      <div class="what-grid">
+        <div class="what-item">
+          <div class="what-num">01</div>
+          <h3>I audit everything</h3>
+          <p>Your Google Business Profile, your website, your citations, your reviews, your page speed, your schema — I check every signal Google uses to decide who ranks. You get a video showing exactly what I found.</p>
         </div>
-        <div class="card">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <h3>Website SEO &amp; Speed</h3>
-          <p>Title tags, header structure, schema markup, NAP consistency, mobile speed, and page structure — the on-page signals that tell Google what you do and where.</p>
+        <div class="what-item">
+          <div class="what-num">02</div>
+          <h3>I fix it over 12 weeks</h3>
+          <p>GBP optimization, on-page SEO, 50+ citation builds, a review system that runs on autopilot, service pages, area pages — every fix delivered in order, on a schedule you can see.</p>
         </div>
-        <div class="card">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h3>Citations, Reviews &amp; Proof</h3>
-          <p>I build your listings on 50+ directories, set up a review system that runs on autopilot, and send you monthly ranking reports so you can see it working.</p>
+        <div class="what-item">
+          <div class="what-num">03</div>
+          <h3>You see the numbers move</h3>
+          <p>Monthly ranking heatmaps and reports showing exactly where you stand versus where you started. No black boxes. If something is not working, we adjust.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How It Works -->
-  <section class="steps-section">
+  <!-- Who I Am — E-E-A-T, solo-operator positioning, leaned in -->
+  <section class="about-section">
     <div class="container">
-      <h2>How It Works</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">Audit</div>
-          <p>I audit your Google presence — your GBP, website, citations, reviews, speed, and schema — and find every issue holding you back.</p>
+      <div class="about-inner">
+        <!-- ADD YOUR PHOTO: replace the placeholder below with <img src="tae-photo.jpg" alt="Tae, owner of Tae Results" class="about-photo"> -->
+        <div class="about-photo-placeholder">
+          <span>Your photo here</span>
         </div>
-        <div class="step">
-          <div class="step-num">Fix</div>
-          <p>Over 12 weeks, I optimize your profile, fix your website signals, build your listings, and create the content that proves your authority to Google.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">Rank</div>
-          <p>You show up when customers search. I track your rankings with heatmaps and monthly reports. You see exactly where you stand.</p>
+        <div class="about-text">
+          <p class="about-label">Who you are working with</p>
+          <h2>I'm Tae.</h2>
+          <p>I run Tae Results out of Knoxville. I work with plumbers, roofers, HVAC contractors, tree service companies, and other home service businesses across East Tennessee. One person, one process, direct communication — no account managers, no layers. I audit your business on video so you can see exactly what I see before we ever talk about working together. Every audit I have ever done is public — <a href="/audits.html">watch any of them</a>.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Social Proof -->
-  <section class="proof-bar">
+  <!-- See the Audits — reframed positively, outcome-focused -->
+  <section class="audits-teaser">
     <div class="container">
-      <p><span>16</span> local businesses audited on video &middot; <a href="/audits.html" style="color:var(--accent-soft);text-decoration:underline;font-weight:600;">Watch them all</a></p>
-    </div>
-  </section>
-
-  <!-- Recent Audits Teaser -->
-  <section class="recent-audits">
-    <div class="container" style="text-align:center;">
-      <h2>Recent Audits</h2>
-      <p style="color:var(--text-secondary);margin-bottom:32px;">Every audit is done on video. The business owner can see exactly what I found.</p>
-      <div class="cards-grid" style="max-width:900px;margin:0 auto;">
-        <a href="/audits/wolfs-roofing-flooring-home-repairs.html" class="card" style="text-align:left;text-decoration:none;">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <h3>Wolf's Roofing</h3>
-          <p>Oak Ridge, TN &middot; No website, no reviews, not ranking at all. Knoxville businesses beating them in their own town.</p>
-        </a>
-        <a href="/audits/archer-air-conditioning.html" class="card" style="text-align:left;text-decoration:none;">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          </div>
+      <h2>See How I Work</h2>
+      <p class="audits-teaser-lead">Every audit is done on video and published with full findings. Here are a few recent ones.</p>
+      <div class="audits-teaser-grid">
+        <a href="/audits/archer-air-conditioning.html" class="teaser-card">
           <h3>Archer Air Conditioning</h3>
-          <p>Powell, TN &middot; Already top 3 — missing schema and booking link that could lock in the position.</p>
+          <p class="teaser-loc">Powell, TN &middot; HVAC</p>
+          <p>Already in the top 3 — I found the specific gaps that could lock in their position long-term.</p>
         </a>
-        <a href="/audits/friendly-neighborhood-plumber.html" class="card" style="text-align:left;text-decoration:none;">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          </div>
+        <a href="/audits/friendly-neighborhood-plumber.html" class="teaser-card">
           <h3>Friendly Neighborhood Plumber</h3>
-          <p>Knoxville, TN &middot; Great website and reviews but not on page 1. Mobile speed and citations holding them back.</p>
+          <p class="teaser-loc">Knoxville, TN &middot; Plumbing</p>
+          <p>Strong website and review system — I identified the technical and citation fixes to push them onto page 1.</p>
+        </a>
+        <a href="/audits/monster-tree-service-knoxville.html" class="teaser-card">
+          <h3>Monster Tree Service of Knoxville</h3>
+          <p class="teaser-loc">Knoxville, TN &middot; Tree Service</p>
+          <p>National franchise with 523 reviews — I found the on-page and speed issues keeping them from the top 3.</p>
         </a>
       </div>
-      <a href="/audits.html" class="btn btn-primary" style="margin-top:40px;border-radius:50px;padding:14px 36px;">See All Audits &rarr;</a>
+      <p class="audits-teaser-more"><a href="/audits.html">See all audits &rarr;</a></p>
     </div>
   </section>
 
-  <!-- CTA + Form -->
+  <!-- CTA + Audit Form — single primary conversion -->
   <section class="cta-section" id="free-audit">
     <div class="container">
       <div class="cta-inner">
-        <h2>See Where Your Business Ranks — Free</h2>
-        <p>I'll send you a personalized video audit showing exactly where you stand on Google and what's costing you customers. No strings attached.</p>
+        <h2>Get Your Free Video Audit</h2>
+        <p>I will record a personalized video showing exactly where your business stands on Google — what is working, what is broken, and what to fix first. No cost, no commitment.</p>
         <form class="audit-form" action="https://formsubmit.co/taeresults1@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="Free Audit Request — Tae Results">
           <input type="hidden" name="_template" value="table">
           <input type="text" name="business" placeholder="Business Name" required>
-          <input type="text" name="website" placeholder="Website URL" required>
+          <input type="text" name="website" placeholder="Website URL (or 'none')" required>
           <input type="email" name="email" placeholder="Email" required>
           <input type="text" name="city" placeholder="City" required>
-          <button type="submit" class="btn btn-primary">Get My Free Audit</button>
+          <button type="submit" class="btn btn-primary">Send Me My Audit</button>
         </form>
-        <p class="form-note">Free. No commitment. Takes 48 hours.</p>
+        <p class="form-note">Takes 48 hours. You get a video you can keep whether we work together or not.</p>
       </div>
     </div>
   </section>
 
-  <!-- NO FOOTER ON HOMEPAGE — per blueprint, NAP is in schema -->
+  <!-- Email Capture — secondary, understated -->
+  <section class="tips-section">
+    <div class="container">
+      <div class="tips-inner">
+        <p class="tips-text"><strong>Not ready for an audit?</strong> I will send you 3 things you can fix today to start ranking higher.</p>
+        <form class="tips-form" action="https://formsubmit.co/taeresults1@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="3 Tips Request — Tae Results">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse" value="Thanks for signing up! I'll send you the 3 tips shortly. — Tae, Tae Results">
+          <input type="email" name="email" placeholder="Your email" required>
+          <button type="submit" class="btn btn-secondary">Send Tips</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
