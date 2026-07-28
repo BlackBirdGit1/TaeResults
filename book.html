@@ -60,16 +60,18 @@
     .ba-stat-val.green{background:#27ae60;}
 
     /* Grid Heatmap */
-    .ba-grid-outer{position:relative;border-radius:12px;overflow:hidden;}
-    .ba-map{width:100%;height:100%;position:absolute;top:0;left:0;z-index:0;filter:saturate(0.3) brightness(1.05);}
-    .ba-grid{display:grid;grid-template-columns:repeat(11,1fr);gap:3px;position:relative;z-index:1;padding:8px;}
-    .ba-dot{width:100%;aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.55rem;font-weight:700;color:#fff;transition:background 0.4s,transform 0.3s;box-shadow:0 1px 3px rgba(0,0,0,0.3);}
+    .ba-grid-outer{position:relative;border-radius:12px;overflow:hidden;min-height:380px;}
+    .ba-map{width:100%;height:100%;position:absolute;top:0;left:0;z-index:0;}
+    .ba-grid{position:relative;z-index:1;padding:12px;display:flex;flex-direction:column;align-items:center;gap:3px;}
+    .ba-row{display:flex;gap:3px;justify-content:center;}
+    .ba-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;color:#fff;transition:background 0.4s;box-shadow:0 1px 4px rgba(0,0,0,0.35);}
     .ba-dot.red{background:#c0392b;}
-    .ba-dot.yellow{background:#f39c12;}
+    .ba-dot.yellow{background:#e67e22;}
     .ba-dot.green{background:#27ae60;}
+    .ba-dot.hide{visibility:hidden;}
     @media(max-width:768px){
       .ba-inner{grid-template-columns:1fr;}
-      .ba-grid{grid-template-columns:repeat(9,1fr);}
+      .ba-dot{width:26px;height:26px;font-size:0.5rem;}
     }
 
     /* Steps */
@@ -184,14 +186,14 @@
             <div><h4>Your Company</h4><p>Alphabet Street 123, 12345 New York</p></div>
           </div>
           <div class="ba-stats" id="ba-stats">
-            <div class="ba-stat"><span class="ba-stat-label">Average Rank</span><span class="ba-stat-val red" id="stat-rank">18</span></div>
-            <div class="ba-stat"><span class="ba-stat-label">Market Share</span><span class="ba-stat-val red" id="stat-share">2%</span></div>
-            <div class="ba-stat"><span class="ba-stat-label">Calls Per Month</span><span class="ba-stat-val red" id="stat-clicks">3</span></div>
+            <div class="ba-stat"><span class="ba-stat-label">Average Rank</span><span class="ba-stat-val red" id="stat-rank">86</span></div>
+            <div class="ba-stat"><span class="ba-stat-label">Market Share</span><span class="ba-stat-val red" id="stat-share">1%</span></div>
+            <div class="ba-stat"><span class="ba-stat-label">Clicks Per Month</span><span class="ba-stat-val red" id="stat-clicks">5</span></div>
             <div class="ba-stat"><span class="ba-stat-label">Clients Per Month</span><span class="ba-stat-val red" id="stat-clients">1-2</span></div>
           </div>
         </div>
         <div class="ba-grid-outer">
-          <iframe class="ba-map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d210000!2d-74.0060!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="pointer-events:none;border:0;" title="Map"></iframe>
+          <iframe class="ba-map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d390000!2d-74.0060!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="pointer-events:none;border:0;" title="Map"></iframe>
           <div class="ba-grid" id="ba-grid"></div>
         </div>
       </div>
@@ -257,50 +259,83 @@
   </div>
   <div class="bk-cal" style="padding-bottom:64px;">
     <div class="bk-cal-wrap">
-      <div class="calendly-inline-widget" data-url="https://calendly.com/tae-taeresults/15"></div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/tae-taeresults/15" style="min-width:320px;height:700px;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </div>
   </div>
 
   <footer class="bk-footer"><p>Tae Results &middot; Knoxville, TN &middot; (912) 787-1515</p></footer>
 
   <script>
-  // Before/After Grid
+  // Circular Grid - matches ProfResults benchmark
   const gridEl=document.getElementById('ba-grid');
-  const beforeData=[];const afterData=[];
-  const rows=9,cols=11;
-  for(let i=0;i<rows*cols;i++){
-    // Before: mostly 15-20, a few 8-12 near center
-    const r=Math.floor(i/cols),c=i%cols;
-    const distFromCenter=Math.abs(r-4)+Math.abs(c-5);
-    let bv=distFromCenter<3?Math.floor(Math.random()*5)+8:Math.floor(Math.random()*6)+15;
-    if(distFromCenter<2)bv=Math.floor(Math.random()*4)+6;
-    beforeData.push(Math.min(bv,20));
-    // After: mostly 1-3, edges 1-5
-    let av=distFromCenter<3?1:distFromCenter<5?Math.floor(Math.random()*2)+1:Math.floor(Math.random()*3)+1;
-    afterData.push(av);
+  const maxR=6; // radius in dots
+  const diameter=maxR*2+1; // 13 columns at widest
+  
+  // Build circular grid data
+  const beforeCells=[];
+  const afterCells=[];
+  
+  for(let row=0;row<diameter;row++){
+    const rowCells=[];
+    const rowAfter=[];
+    for(let col=0;col<diameter;col++){
+      const dx=col-maxR, dy=row-maxR;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<=maxR+0.3){
+        // Before: center is 3-11 (yellow/green), edges are 15-20 (red)
+        let bv;
+        if(dist<=2) bv=Math.floor(Math.random()*4)+3;
+        else if(dist<=4) bv=Math.floor(Math.random()*6)+8;
+        else bv=Math.floor(Math.random()*5)+16;
+        beforeCells.push({row,col,val:Math.min(bv,20),visible:true});
+        // After: almost all 1s, edge maybe 1-2
+        let av=dist<=5?1:Math.floor(Math.random()*2)+1;
+        afterCells.push({row,col,val:av,visible:true});
+      } else {
+        beforeCells.push({row,col,val:0,visible:false});
+        afterCells.push({row,col,val:0,visible:false});
+      }
+    }
   }
-
-  function renderGrid(data){
+  
+  function colorClass(v){
+    if(v<=3) return 'green';
+    if(v<=10) return 'yellow';
+    return 'red';
+  }
+  
+  function renderGrid(cells){
     gridEl.innerHTML='';
-    data.forEach(v=>{
-      const d=document.createElement('div');
-      d.className='ba-dot '+(v<=3?'green':v<=10?'yellow':'red');
-      d.textContent=v;
-      gridEl.appendChild(d);
-    });
+    for(let row=0;row<diameter;row++){
+      const rowDiv=document.createElement('div');
+      rowDiv.className='ba-row';
+      for(let col=0;col<diameter;col++){
+        const cell=cells[row*diameter+col];
+        const d=document.createElement('div');
+        if(cell.visible){
+          d.className='ba-dot '+colorClass(cell.val);
+          d.textContent=cell.val;
+        } else {
+          d.className='ba-dot hide';
+        }
+        rowDiv.appendChild(d);
+      }
+      gridEl.appendChild(rowDiv);
+    }
   }
-
+  
   function showBefore(){
     document.querySelectorAll('.ba-tab').forEach(t=>t.classList.remove('active'));
     document.querySelectorAll('.ba-tab')[0].classList.add('active');
-    renderGrid(beforeData);
-    setStats('18','2%','3','1-2','red');
+    renderGrid(beforeCells);
+    setStats('86','1%','5','1-2','red');
   }
   function showAfter(){
     document.querySelectorAll('.ba-tab').forEach(t=>t.classList.remove('active'));
     document.querySelectorAll('.ba-tab')[1].classList.add('active');
-    renderGrid(afterData);
-    setStats('2','78%','60+','12+','green');
+    renderGrid(afterCells);
+    setStats('2','82%','80','15+','green');
   }
   function setStats(rank,share,clicks,clients,color){
     const ids=['stat-rank','stat-share','stat-clicks','stat-clients'];
@@ -311,9 +346,9 @@
       el.className='ba-stat-val '+color;
     });
   }
-
-  renderGrid(beforeData);
-
+  
+  renderGrid(beforeCells);
+  
   // FAQ Accordion
   function toggleFaq(btn){
     const item=btn.parentElement;
