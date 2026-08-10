@@ -284,14 +284,13 @@
     }
 
     /* Logo Carousel */
-    .logo-bar { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; position: relative; }
-    .logo-bar-label { position: absolute; left: 24px; top: 50%; transform: translateY(-50%); font-size: 0.82rem; color: var(--text-3); font-weight: 500; z-index: 2; }
-    .logo-track-wrap { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
-    .logo-track { display: flex; gap: 56px; align-items: center; animation: logo-scroll 20s linear infinite; width: max-content; padding-left: 120px; }
-    .logo-track img { height: 40px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(0.5); transition: filter 0.3s; flex-shrink: 0; }
+    .logo-bar { padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; text-align: center; }
+    .logo-bar-label { font-size: 0.78rem; color: var(--text-3); font-weight: 500; margin-bottom: 16px; }
+    .logo-track-wrap { max-width: 480px; margin: 0 auto; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+    .logo-track { display: flex; gap: 40px; align-items: center; animation: logo-scroll 12s linear infinite; width: max-content; }
+    .logo-track img { height: 36px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(0.45); transition: filter 0.3s; flex-shrink: 0; }
     .logo-track img:hover { filter: grayscale(0%) opacity(1); }
     @keyframes logo-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-33.333%); } }
-    @media (max-width: 600px) { .logo-bar-label { position: static; text-align: center; transform: none; margin-bottom: 16px; } .logo-track { padding-left: 0; } }
   </style>
 </head>
 <body>
@@ -346,7 +345,7 @@
 
   <!-- CLIENT LOGOS -->
   <section class="logo-bar">
-    <div class="logo-bar-label">Working with...</div>
+    <p class="logo-bar-label">Working with...</p>
     <div class="logo-track-wrap">
       <div class="logo-track">
         <img src="clients/klw-tree-service.png" alt="KLW Tree Service" loading="lazy">
