@@ -1,17 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWNTYYCS59"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-WWNTYYCS59');
-  </script>
-  <!-- NOTE: Google Ads conversion snippet REMOVED from this page.
-       It now lives only on audit-requested.html, which is reached
-       exclusively via successful form submission. -->
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WWNTYYCS59');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Local SEO Video Audit | Knoxville TN — Tae Results</title>
@@ -290,6 +282,16 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition: none !important; }
     }
+
+    /* Logo Carousel */
+    .logo-bar { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; position: relative; }
+    .logo-bar-label { position: absolute; left: 24px; top: 50%; transform: translateY(-50%); font-size: 0.82rem; color: var(--text-3); font-weight: 500; z-index: 2; }
+    .logo-track-wrap { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+    .logo-track { display: flex; gap: 56px; align-items: center; animation: logo-scroll 20s linear infinite; width: max-content; padding-left: 120px; }
+    .logo-track img { height: 40px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(0.5); transition: filter 0.3s; flex-shrink: 0; }
+    .logo-track img:hover { filter: grayscale(0%) opacity(1); }
+    @keyframes logo-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-33.333%); } }
+    @media (max-width: 600px) { .logo-bar-label { position: static; text-align: center; transform: none; margin-bottom: 16px; } .logo-track { padding-left: 0; } }
   </style>
 </head>
 <body>
@@ -321,12 +323,9 @@
         <h2>Request Your Free Video Audit</h2>
         <p>Four fields. 48 hours. No sales call required.</p>
         <form class="aud-form" action="https://formsubmit.co/taeresults1@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Free Audit Request — Tae Results (top form)">
+          <input type="hidden" name="_subject" value="Free Audit Request — Tae Results">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_autoresponse" value="Got your audit request. I'll record your video and send it within 48 hours. — Tae, Tae Results">
-          <!-- Redirect successful submissions to the thank-you page, where the Ads conversion fires -->
-          <input type="hidden" name="_next" value="https://taeresults.com/audit-requested.html">
-          <input type="hidden" name="_captcha" value="false">
           <input type="text" name="business" placeholder="Business Name" required>
           <input type="text" name="website" placeholder="Website URL (or 'none')" required>
           <input type="email" name="email" placeholder="Email" required>
@@ -345,28 +344,21 @@
     </div>
   </section>
 
-  <!-- PROOF -->
-  <section class="prf">
-    <div class="w">
-      <h2>Recent Audits</h2>
-      <div class="prf-g">
-        <a href="/audits/archer-air-conditioning.html" class="prf-c">
-          <h3>Archer Air Conditioning</h3>
-          <p class="prf-loc">Powell, TN · HVAC</p>
-          <p>Already in the top 3 — I found the specific gaps that could lock in their position long-term.</p>
-        </a>
-        <a href="/audits/friendly-neighborhood-plumber.html" class="prf-c">
-          <h3>Friendly Neighborhood Plumber</h3>
-          <p class="prf-loc">Knoxville, TN · Plumbing</p>
-          <p>Strong website and review system — I identified the technical and citation fixes to push them onto page 1.</p>
-        </a>
-        <a href="/audits/monster-tree-service-knoxville.html" class="prf-c">
-          <h3>Monster Tree Service of Knoxville</h3>
-          <p class="prf-loc">Knoxville, TN · Tree Service</p>
-          <p>National franchise with 523 reviews — I found the on-page and speed issues keeping them from the top 3.</p>
-        </a>
+  <!-- CLIENT LOGOS -->
+  <section class="logo-bar">
+    <div class="logo-bar-label">Working with...</div>
+    <div class="logo-track-wrap">
+      <div class="logo-track">
+        <img src="clients/klw-tree-service.png" alt="KLW Tree Service" loading="lazy">
+        <img src="clients/nikko-sushi.png" alt="Nikko Sushi" loading="lazy">
+        <img src="clients/leaflee-clean.png" alt="Leaflee Clean" loading="lazy">
+        <img src="clients/klw-tree-service.png" alt="KLW Tree Service" loading="lazy" aria-hidden="true">
+        <img src="clients/nikko-sushi.png" alt="Nikko Sushi" loading="lazy" aria-hidden="true">
+        <img src="clients/leaflee-clean.png" alt="Leaflee Clean" loading="lazy" aria-hidden="true">
+        <img src="clients/klw-tree-service.png" alt="KLW Tree Service" loading="lazy" aria-hidden="true">
+        <img src="clients/nikko-sushi.png" alt="Nikko Sushi" loading="lazy" aria-hidden="true">
+        <img src="clients/leaflee-clean.png" alt="Leaflee Clean" loading="lazy" aria-hidden="true">
       </div>
-      <p class="prf-more"><a href="/audits.html">See all audits →</a></p>
     </div>
   </section>
 
@@ -432,12 +424,9 @@
         <h2>Want Me to Audit Your Business?</h2>
         <p>A personalized video: what's working, what's broken, what to fix first. No cost, no commitment.</p>
         <form class="aud-form" action="https://formsubmit.co/taeresults1@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Free Audit Request — Tae Results (bottom form)">
+          <input type="hidden" name="_subject" value="Free Audit Request — Tae Results">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_autoresponse" value="Got your audit request. I'll record your video and send it within 48 hours. — Tae, Tae Results">
-          <!-- Redirect successful submissions to the thank-you page, where the Ads conversion fires -->
-          <input type="hidden" name="_next" value="https://taeresults.com/audit-requested.html">
-          <input type="hidden" name="_captcha" value="false">
           <input type="text" name="business" placeholder="Business Name" required>
           <input type="text" name="website" placeholder="Website URL (or 'none')" required>
           <input type="email" name="email" placeholder="Email" required>

@@ -112,26 +112,22 @@
     }
 
     /* Hero */
-    .hero { padding: 140px 0 80px; }
-    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .hero { padding: 140px 0 0; }
     .hero-ey { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--green); margin-bottom: 16px; }
-    .hero-hl { font-size: clamp(1.8rem,3.5vw,2.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
-    .hero-sub { font-size: 1rem; color: var(--text-2); margin-bottom: 28px; line-height: 1.65; }
+    .hero-hl { font-size: clamp(2rem,4.5vw,3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; max-width: 620px; margin-bottom: 16px; }
+    .hero-sub { font-size: 1.05rem; color: var(--text-2); max-width: 540px; margin-bottom: 28px; line-height: 1.65; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-    .hero-cta-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .hero-cta-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 60px; }
     .btn-g { display: inline-block; padding: 14px 32px; font-family: var(--f); font-size: 0.95rem; font-weight: 600; color: #fff; background: var(--green); border: none; border-radius: 8px; cursor: pointer; transition: background .2s; text-align: center; text-decoration: none; }
     .btn-g:hover { background: var(--green-h); }
     .hero-micro { font-size: 0.8rem; color: var(--text-3); }
 
     /* Video */
-    .vid-frame { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border-h); box-shadow: var(--sh-lg); background: #000; }
+    .vid-section { margin-bottom: 80px; }
+    .vid-frame { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border-h); box-shadow: var(--sh-lg); background: #000; max-width: 720px; }
     .vid-r { position: relative; }
     .vid-r wistia-player { display: block; width: 100%; }
     .vid-cap { font-size: 0.82rem; color: var(--text-3); margin-top: 10px; }
-    @media (max-width:768px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-      .hero { padding-top: 110px; }
-    }
 
     /* Problem */
     .prob { padding: 72px 0; text-align: center; }
@@ -182,6 +178,16 @@
     @media (max-width:500px) { .ft-in { flex-direction: column; text-align: center; } .ft-r { justify-content: center; } }
     @media (max-width:500px) { .hero { padding-top: 110px; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+
+    /* Logo Carousel */
+    .logo-bar { padding: 40px 0; overflow: hidden; position: relative; }
+    .logo-bar-label { position: absolute; left: 24px; top: 50%; transform: translateY(-50%); font-size: 0.82rem; color: var(--text-3); font-weight: 500; z-index: 2; }
+    .logo-track-wrap { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+    .logo-track { display: flex; gap: 56px; align-items: center; animation: logo-scroll 20s linear infinite; width: max-content; padding-left: 120px; }
+    .logo-track img { height: 40px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(0.5); transition: filter 0.3s; flex-shrink: 0; }
+    .logo-track img:hover { filter: grayscale(0%) opacity(1); }
+    @keyframes logo-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-33.333%); } }
+    @media (max-width: 600px) { .logo-bar-label { position: static; text-align: center; transform: none; margin-bottom: 16px; } .logo-track { padding-left: 0; } }
   </style>
 </head>
 <body>
@@ -204,27 +210,23 @@
   <!-- HERO -->
   <section class="hero">
     <div class="w">
-      <div class="hero-grid">
-        <!-- Left: Text -->
-        <div>
-          <h1 class="sr-only">Local SEO Services in Knoxville, TN — Rank Your Business in Google's Top 3 | Tae Results</h1>
-          <p class="hero-ey">Local SEO for Small Businesses</p>
-          <p class="hero-hl">Your Competitors Are Beating You on Google. Here's Exactly&nbsp;Why.</p>
-          <p class="hero-sub">I'll record a free video showing exactly what's holding your business back on Google. You'll have it in 48 hours. No call, no commitment — you keep the video either way.</p>
-          <div class="hero-cta-row">
-            <a href="/free-audit.html" class="btn-g">Get My Free Audit</a>
-            <span class="hero-micro">Just your business name and email. I do the rest.</span>
+      <h1 class="sr-only">Local SEO Services in Knoxville, TN — Rank Your Business in Google's Top 3 | Tae Results</h1>
+      <p class="hero-ey">Local SEO for Small Businesses</p>
+      <p class="hero-hl">Your Competitors Are Beating You on Google. Here's Exactly&nbsp;Why.</p>
+      <p class="hero-sub">I'll record a free video showing exactly what's holding your business back on Google. You'll have it in 48 hours. No call, no commitment — you keep the video either way.</p>
+      <div class="hero-cta-row">
+        <a href="/free-audit.html" class="btn-g">Get My Free Audit</a>
+        <span class="hero-micro">Just your business name and email. I do the rest.</span>
+      </div>
+
+      <!-- VIDEO -->
+      <div class="vid-section">
+        <div class="vid-frame">
+          <div class="vid-r">
+            <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/on7eneowfj.js" async type="module"></script><style>wistia-player[media-id='on7eneowfj']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/on7eneowfj/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="on7eneowfj" aspect="1.7777777777777777"></wistia-player>
           </div>
         </div>
-        <!-- Right: Video -->
-        <div>
-          <div class="vid-frame">
-            <div class="vid-r">
-              <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/on7eneowfj.js" async type="module"></script><style>wistia-player[media-id='on7eneowfj']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/on7eneowfj/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="on7eneowfj" aspect="1.7777777777777777"></wistia-player>
-            </div>
-          </div>
-          <p class="vid-cap">2 minutes — I walk through exactly what I look at and what I fix.</p>
-        </div>
+        <p class="vid-cap">2 minutes — I walk through exactly what I look at and what I fix.</p>
       </div>
     </div>
   </section>
@@ -294,6 +296,24 @@
   <section class="trust">
     <div class="w">
       <p><strong>Ranking local businesses is all I do, every day.</strong> One person, every audit done on video. No account managers, no layers.</p>
+    </div>
+  </section>
+
+  <!-- CLIENT LOGOS -->
+  <section class="logo-bar">
+    <div class="logo-bar-label">Working with...</div>
+    <div class="logo-track-wrap">
+      <div class="logo-track">
+        <img src="clients/klw-tree-service.png" alt="KLW Tree Service" loading="lazy">
+        <img src="clients/nikko-sushi.png" alt="Nikko Sushi" loading="lazy">
+        <img src="clients/leaflee-clean.png" alt="Leaflee Clean" loading="lazy">
+        <img src="clients/klw-tree-service.png" alt="KLW Tree Service" loading="lazy" aria-hidden="true">
+        <img src="clients/nikko-sushi.png" alt="Nikko Sushi" loading="lazy" aria-hidden="true">
+        <img src="clients/leaflee-clean.png" alt="Leaflee Clean" loading="lazy" aria-hidden="true">
+        <img src="clients/klw-tree-service.png" alt="KLW Tree Service" loading="lazy" aria-hidden="true">
+        <img src="clients/nikko-sushi.png" alt="Nikko Sushi" loading="lazy" aria-hidden="true">
+        <img src="clients/leaflee-clean.png" alt="Leaflee Clean" loading="lazy" aria-hidden="true">
+      </div>
     </div>
   </section>
 
